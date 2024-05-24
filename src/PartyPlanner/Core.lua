@@ -12,20 +12,31 @@ local function LoadSettings()
     end
 
     if PartyPlannerSettings.defaultMessage == nil then
-        PartyPlannerSettings.defaultMessage = "LFM %i need %r"
+        PartyPlannerSettings.defaultMessage = "LF%nM %i need %r"
     end
 
     if PartyPlannerSettings.message == nil then
         PartyPlannerSettings.message = PartyPlannerSettings.defaultMessage
     end
 
+    if PartyPlannerSettings.useRoleAll == nil then
+        PartyPlannerSettings.useRoleAll = false
+    end
+
+    if PartyPlannerSettings.useGroupSizeMin == nil then
+        PartyPlannerSettings.useGroupSizeMin = false
+    end
+
+    if PartyPlannerSettings.groupSizeMin == nil then
+        PartyPlannerSettings.groupSizeMin = 3
+    end
+
     if PartyPlannerSettings.channelSettings == nil then
         PartyPlannerSettings.channelSettings = {}
 
         local channels = {GetChannelList()}
-        local totalChannels = #channels
         for i = 1, #channels, 3 do
-            local id, name, disabled = channels[i], channels[i+1], channels[i+2]
+            local id, name = channels[i], channels[i+1]
             PartyPlannerSettings.channelSettings[name] = {
                 id = id,
                 name = name,
@@ -69,6 +80,7 @@ end
 
 local function On_GroupRosterUpdate()
     -- print("Group roster updated")
+    PartyPlanner.UI:UpdatePreviewText()
 end
 
 local function On_ChatChannelChanged()

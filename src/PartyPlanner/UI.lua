@@ -363,12 +363,19 @@ end
 function PartyPlanner.UI:GetRolesText()
     local rolesText = ""
     local chosenRoles = {}
+    local allChecked = true
     for i = 1, #PartyPlanner.UI.roleCheckboxes do
         local container = PartyPlanner.UI.roleCheckboxes[i]
         if container.checkbox:GetChecked() then
             -- print(container.role)
             chosenRoles[#chosenRoles+1] = container.role
+        else
+            allChecked = false
         end
+    end
+
+    if PartyPlannerSettings.useRoleAll and allChecked then
+        return "all"
     end
 
     for i = 1, #chosenRoles do
@@ -388,13 +395,36 @@ function PartyPlanner.UI:UpdatePreviewText()
     local message = PartyPlanner.UI.editBox:GetText()
     local parsedMessage = message
 
+    local numOfPlayers = GetNumGroupMembers()
+    if numOfPlayers == 0 then
+        numOfPlayers = 1
+    end
+
+    
+
     if PartyPlanner.DATA.selectedInstance == nil then
+        parsedMessage = parsedMessage:gsub("%%i ", "")
         parsedMessage = parsedMessage:gsub("%%i", "")
+        parsedMessage = parsedMessage:gsub(" %%n", "")
+        parsedMessage = parsedMessage:gsub("%%n", "")
     else
         if PartyPlannerSettings.useAbreviation then
             parsedMessage = parsedMessage:gsub("%%i", PartyPlanner.DATA.selectedInstance.abr)
         else
             parsedMessage = parsedMessage:gsub("%%i", PartyPlanner.DATA.selectedInstance.name)
+        end
+
+        local remainingPlayers = PartyPlanner.DATA.selectedInstance.groupSize - numOfPlayers
+
+        if PartyPlannerSettings.useGroupSizeMin then
+            if remainingPlayers > PartyPlannerSettings.groupSizeMin then
+                parsedMessage = parsedMessage:gsub(" %%n", "")
+                parsedMessage = parsedMessage:gsub("%%n", "")
+            else
+                parsedMessage = parsedMessage:gsub("%%n", remainingPlayers)
+            end
+        else
+            parsedMessage = parsedMessage:gsub("%%n", remainingPlayers)
         end
     end
 
@@ -624,6 +654,7 @@ function PartyPlanner.UI:Build()
         GameTooltip:SetOwner(editBoxInfo, "ANCHOR_LEFT", 0, 0)
         GameTooltip:AddLine("Message formatting rules, ")
         GameTooltip:AddLine("use these to customise your message:")
+        GameTooltip:AddLine("%n - Remaining player count needed")
         GameTooltip:AddLine("%i - Instance name or abbreviation")
         GameTooltip:AddLine("%r - Required roles")
         -- GameTooltip:AddLine("%n - Remaining player count needed")
