@@ -15,6 +15,11 @@ local LDB = LibStub("LibDataBroker-1.1"):NewDataObject("PartyPlanner", {
 
 local LibSFDropDown = LibStub("LibSFDropDown-1.5")
 
+function PartyPlanner:Reload()
+    SetPortraitTexture(PartyPlanner.UI.characterPortrait.texture, "player");
+    PartyPlanner.UI:UpdateChannelOptions()
+end
+
 function PartyPlanner.UI:BuildAddonSettings()
     local panel = CreateFrame("Frame")
     panel.name = "PartyPlanner"               -- see panel fields

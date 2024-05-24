@@ -15,6 +15,5 @@ Libs/LibSFDropDown/LibSFDropDownMediaButtons.lua
 Libs/LibSFDropDown/LibSFDropDownSkins.lua
 
 Data.lua
-Funcs.lua
 UI.lua
 Core.lua
