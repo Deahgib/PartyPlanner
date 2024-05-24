@@ -523,27 +523,26 @@ function PartyPlanner.UI:Build()
 
     -- Check boxes for the 3 roles
     local roleCheckboxes = {}
-    local roles = {"Tank", "Healer", "DPS"}
+    local roles = {"Tank", "Healer", "DPS"} --
 
     for i = 1, #roles do
 
         local roleContainer = CreateFrame("FRAME", "partyPlanner-role-container-"..roles[i], rolesOptionsContainer, "BackdropTemplate")
-        roleContainer:SetSize(80, 28)
-        roleContainer:SetPoint("LEFT", rolesOptionsContainer, "LEFT", 5+(i-1)*125, 0)
+        roleContainer:SetSize(100, 28)
+        roleContainer:SetPoint("LEFT", rolesOptionsContainer, "LEFT", 7+(i-1)*100, 0)
 
-        roleContainer.checkbox = CreateFrame("CheckButton", nil, roleContainer, "InterfaceOptionsCheckButtonTemplate")        
-        roleContainer.checkbox:SetPoint("LEFT", roleContainer, "LEFT", 0, 0)
+        roleContainer.checkbox = CreateFrame("CheckButton", "partyPlannerRoleCheckbox"..roles[i], roleContainer, "ChatConfigCheckButtonTemplate")
+        roleContainer.checkbox:SetPoint("LEFT", roleContainer, "LEFT", 15, 0)
         roleContainer.checkbox:SetChecked(true)
-        -- local left, bottom, width, height = roleContainer.checkbox:GetBoundsRect()
-        -- local hitLeft, hitBottom, hitWidth, hitHeight = roleContainer.checkbox:GetHitRectInsets()
-        -- local rectLeft, rectBottom, rectWidth, rectHeight = roleContainer.checkbox:GetRect()
         roleContainer.checkbox:SetScript("OnClick", function(self)
             PartyPlanner.UI:UpdatePreviewText()
         end)
         
-        roleContainer.text = roleContainer:CreateFontString(nil, "OVERLAY", "GameFontHighlight")
-        roleContainer.text:SetPoint("LEFT", roleContainer.checkbox, "RIGHT", 0, 0)
-        roleContainer.text:SetText(roles[i])
+        local checkboxText = getglobal(roleContainer.checkbox:GetName() .. 'Text')
+        checkboxText:SetText(roles[i]);
+        checkboxText:SetPoint("LEFT", roleContainer.checkbox, "RIGHT", 5, 0)
+
+        roleContainer.checkbox:SetHitRectInsets(0, 0, 0, 0)
 
         roleContainer.role = roles[i]
 
