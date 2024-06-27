@@ -1,8 +1,9 @@
 ## Interface: 11502
 ## Title: PartyPlanner 
 ## Notes: Post LFG messages to all channels fast.
-## Version: 0.0.2
+## Version: 0.0.3-fix
 ## SavedVariables: PartyPlannerSettings
+## SavedVariablesPerCharacter: PartyPlannerCharacterSettings
 ## DefaultState: enabled
 
 Libs/LibStub/LibStub.lua
@@ -15,5 +16,15 @@ Libs/LibSFDropDown/LibSFDropDownMediaButtons.lua
 Libs/LibSFDropDown/LibSFDropDownSkins.lua
 
 Data.lua
+Settings.lua
+
+UI/Utils.lua
+UI/MiniUI.lua
+UI/DungeonSelect.lua
+UI/RolesSelect.lua
+UI/ChannelOptions.lua
+UI/InputField.lua
+UI/PreviewField.lua
+
 UI.lua
 Core.lua
