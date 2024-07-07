@@ -282,8 +282,10 @@ PartyPlanner.DATA.INSTANCES = {
 
 
 PartyPlanner.DATA.defaultLFMMessage = "LF%nM %i need %r"
-PartyPlanner.DATA.defaultLFGMessage = "%r LFG %i"
+PartyPlanner.DATA.defaultLFGMessage = " %l %c %r LFG %i"
 PartyPlanner.DATA.currentMode = "LFM"
+
+PartyPlanner.DATA.characterLevel = 0
 
 PartyPlanner.DATA.timeSinceLastSend = 121
 PartyPlanner.DATA.maxTrackedTime = 120

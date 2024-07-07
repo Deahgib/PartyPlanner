@@ -80,6 +80,7 @@ function PartyPlanner.UI:UpdatePreviewText()
         numOfPlayers = 1
     end
 
+    -- %i - Instance name or abbreviation
     if PartyPlanner.DATA.selectedInstance == nil then
         parsedMessage = parsedMessage:gsub("%%i ", "")
         parsedMessage = parsedMessage:gsub("%%i", "")
@@ -94,6 +95,7 @@ function PartyPlanner.UI:UpdatePreviewText()
 
         local remainingPlayers = PartyPlanner.DATA.selectedInstance.groupSize - numOfPlayers
 
+        -- %n - Remaining player count needed (dependant on selectedInstance)
         if PartyPlannerSettings.useGroupSizeMin then
             if remainingPlayers > PartyPlannerSettings.groupSizeMin then
                 parsedMessage = parsedMessage:gsub(" %%n", "")
@@ -106,8 +108,16 @@ function PartyPlanner.UI:UpdatePreviewText()
         end
     end
 
+    -- %r - Required roles
     local rolesText = PartyPlanner.UI:GetRolesText()
     parsedMessage = parsedMessage:gsub("%%r", rolesText)
+
+    -- %l - Character level
+    parsedMessage = parsedMessage:gsub("%%l", PartyPlanner.DATA.characterLevel)
+
+    -- %c - Character class
+    parsedMessage = parsedMessage:gsub("%%c", PartyPlanner.DATA.characterClass)
+    
 
     PartyPlanner.DATA.currentMessage = parsedMessage
 

@@ -74,6 +74,10 @@ EventFrame:RegisterEvent("CHANNEL_UI_UPDATE")
 local function On_AddonLoaded()
     -- print("Addon loaded")
     LoadSettings()
+    
+    PartyPlanner.DATA.characterLevel = UnitLevel("player")
+    PartyPlanner.DATA.characterClass = UnitClass("player")
+    
     PartyPlanner:BuildAddonSettings()
     PartyPlanner.UI:Build()
 end
@@ -91,7 +95,6 @@ local function On_SomethingInterestingChanged()
 end
 
 local function On_GroupRosterUpdate()
-    -- print("Group roster updated")
     if not PartyPlanner.UI.isReady then
         return
     end

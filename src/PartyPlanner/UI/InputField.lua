@@ -58,7 +58,15 @@ function PartyPlanner.UI:CreateInputField(parent)
         GameTooltip:AddLine("use these to customise your message:")
         GameTooltip:AddLine("%n - Remaining player count needed")
         GameTooltip:AddLine("%i - Instance name or abbreviation")
-        GameTooltip:AddLine("%r - Required roles")
+        
+        if (PartyPlanner.DATA.currentMode == "LFG") then
+            GameTooltip:AddLine("%r - Your roles")
+            GameTooltip:AddLine("%l - Your level")
+            GameTooltip:AddLine("%c - Your class")
+        else
+            GameTooltip:AddLine("%r - Required roles")
+        end
+        
         -- GameTooltip:AddLine("%n - Remaining player count needed")
 
         GameTooltip:Show()
