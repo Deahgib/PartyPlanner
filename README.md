@@ -3,34 +3,23 @@
 
 _Only available for Classic Vanilla._
 
-**Angler Atlas**  is a lookup tool for fishers to find the best locations for fishing using a clean bizz-like UI.
+Effortless Group Formation for WoW Classic - Party Planner
+Still typing out group ads in WoW Classic? Been there, done that (repeatedly)! Party Planner is here to save the day. With this addon, you can ditch the copy-pasting and blast your group needs to all the right channels with just one click.
+Features:
+    No More Typing!
+    Dynamic Messages Made Easy (ie. lf3m lf2m need tank etc...)
+    Classic-Friendly UI
+    Instance List for Dungeons and Raids
+    Role selection
 
-The Data is grabbed from wowhead. ( Thank you WowHead! )
-
-This includes additional information as well such as:
-
--   Per Fish zone info
--   Per zone fish loot tables
--   Per Zone catch rates
--   Recipes the fish are used in
--   Fishing equipment
--   Fish catch requirements (Time of day/year)
--   [Auctionator] Tracked raw and cooked fish auction prices
-  
-This tool aims to help keep you in the game instead of on a wow database website without giving you so much information that you have nothing to discover for yourself.  
-  
-Auction prices are available with the Auctionator addon also installed.
-
->Note:  
-_The information available for vanilla fishing is not complete enough to provide accurate catch rates as the data is only an overall average rate and does not take into account other factors such as time of year, time of day and the fisher's skill level. Catch rates can also change throughout the day. All of which are important variables to determine how to catch those rare fish.
-Where relevant AnglerAtlas will display these requirements but the data should only be used as a good guideline._  
+Please note: This addon is designed specifically for World of Warcraft Classic Era.
 
 ## Installation
 
 To install via CurseForge simply search for "Angler Atlas - A fishing companion" in the "Get More Addons" tab.
 If you don't use curseforge please install the addon using the following instructions:
 
-1. Download the latest AnglerAtlas .zip from the /dist folder or here https://github.com/Deahgib/AnglerAtlas/tree/master/dist
+1. Download the latest PartyPlanner .zip from the /dist folder or here https://github.com/Deahgib/PartyPlanner/tree/master/dist
   
 2. Extract the files to a folder on your desktop.  
   
@@ -53,8 +42,8 @@ If using a Macintosh, the **typical default** install path is:
 7. Copy the files from the folder on your desktop into the AddOns folder  
   
 8. Your final path should look something like:  
-  PC:  C:\Program Files\World of Warcraft\\\_classic_era_\Interface\AddOns\AnglerAtlas
-  Macintosh HD/Applications/World of Warcraft/Interface/Addons/AnglerAtlas
+  PC:  C:\Program Files\World of Warcraft\\\_classic_era_\Interface\AddOns\PartyPlanner
+  Macintosh HD/Applications/World of Warcraft/Interface/Addons/PartyPlanner
 
 >## ISC License
 > Copyright 2023 deahgib ( https://github.com/Deahgib )

@@ -1,7 +1,7 @@
-## Interface: 11502
+## Interface: 11503
 ## Title: PartyPlanner 
 ## Notes: Post LFG messages to all channels fast.
-## Version: 0.0.4fix
+## Version: 0.0.5
 ## SavedVariables: PartyPlannerSettings
 ## SavedVariablesPerCharacter: PartyPlannerCharacterSettings
 ## DefaultState: enabled
