@@ -6,7 +6,11 @@ local LibDBIcon = LibStub("LibDBIcon-1.0")
 function PartyPlanner:BuildAddonSettings()
     local panel = CreateFrame("Frame")
     panel.name = "PartyPlanner"               -- see panel fields
-    InterfaceOptions_AddCategory(panel)  -- see InterfaceOptions API
+    
+    local category, layout
+    category, layout = Settings.RegisterCanvasLayoutCategory(panel, panel.name, panel.name);
+    category.ID = panel.name
+    Settings.RegisterAddOnCategory(category);
 
     -- add widgets to the panel as desired
     local title = panel:CreateFontString("ARTWORK", nil, "GameFontNormalLarge")
