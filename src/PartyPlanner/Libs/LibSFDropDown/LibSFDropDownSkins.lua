@@ -1,8 +1,9 @@
 local lsfdd = LibStub("LibSFDropDown-1.5")
-local cur_ver, ver = lsfdd._sv, 2
+local cur_ver, ver = lsfdd._sv, 4
 if cur_ver and cur_ver >= ver then return end
 lsfdd._sv = ver
-local pairs, pcall, IsAddOnLoaded = pairs, pcall, IsAddOnLoaded
+local pairs, pcall = pairs, pcall
+local IsAddOnLoaded = IsAddOnLoaded or C_AddOns.IsAddOnLoaded
 
 
 local skins = {
@@ -29,7 +30,7 @@ local skins = {
 			btn.backdrop:Point("TOPLEFT", 3, 1)
 			btn.backdrop:Point("BOTTOMRIGHT", 1, 2)
 			btn.Button.SetPoint = E.noop
-			S:HandleNextPrevButton(btn.Button, 'down')
+			S:HandleNextPrevButton(btn.Button, 'down', nil, true)
 			btn.isSkinned = true
 		end
 
